@@ -1,0 +1,12 @@
+md-card
+	md-toolbar
+		.md-toolbar-tools
+			h1 Blue		
+	md-list
+		md-list-item(ng-repeat="persona in personas" class="md-padding" ui-sref="persona({idPersona:$index})")
+			p lista
+			span(flex)
+			p {{persona.Nombre}}
+			span(flex)
+			p {{persona.Edad}}
+			md-divider
