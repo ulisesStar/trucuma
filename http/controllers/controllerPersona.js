@@ -1,12 +1,14 @@
 var db = require('../relations');
-var modelo = db.persona;
+var persona = db.persona;
+var intereses = db.interes;
+var imagen = db.imagen;
 
 var ex = module.exports = {};
 
 ex.create = function (req, res, next) {
 
     var data = req.body;
-    modelo.create(data)
+    persona.create(data)
             .then(function () {
                 res.status(200).jsonp({msj: 'SUCCESS!'});
             });
@@ -17,14 +19,17 @@ ex.read = function (req, res, next) {
     var id = req.params.id;
 
     if (id) {
-        modelo.findById(id)
-                .then(function (modelo) {
-                    res.status(200).jsonp(modelo);
+        persona.findById(id, {include: [
+                {model: intereses, attributes: {exclude: ['createdAt', 'updatedAt']}},
+                {model: imagen, attributes: {exclude: ['createdAt', 'updatedAt']}}
+            ]})
+                .then(function (persona) {
+                    res.status(200).jsonp(persona);
                 });
     } else {
-        modelo.findAll()
-                .then(function (modelos) {
-                    res.status(200).jsonp(modelos);
+        persona.findAll()
+                .then(function (personas) {
+                    res.status(200).jsonp(personas);
                 });
     }
 };

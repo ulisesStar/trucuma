@@ -3,13 +3,12 @@ var ex = function(conector) {
     var Sequelize = conector.Sequelize;
     var sequelize = conector.sequelize;
 
-    var Persona = sequelize.define('objetos', {
+    var Interes = sequelize.define('interes', {
         Nombre: Sequelize.STRING,
-        Tipo: Sequelize.STRING
     })
 
-    return Persona;
-
+    return Interes;
+    
 };
 
 module.exports = ex;

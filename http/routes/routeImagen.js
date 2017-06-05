@@ -7,4 +7,7 @@ routeImagen.route('/data/dataImagen')
         .get(x.read)
         .post(x.create)
 
+routeImagen.route('/data/dataImagen/:id')
+        .get(x.read);
+
 module.exports = routeImagen;

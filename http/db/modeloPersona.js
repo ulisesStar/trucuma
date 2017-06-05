@@ -6,10 +6,6 @@ var ex = function(conector) {
     var Persona = sequelize.define('personas', {
         Nombre: Sequelize.STRING,
         Edad: Sequelize.STRING,
-        imagenId: {
-            type: Sequelize.INTEGER,
-            allowNull: true
-        }
     })
 
     return Persona;
