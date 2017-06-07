@@ -3,11 +3,11 @@ var routeImagen = express.Router();
 
 var x = require("../controllers/controllerImagen");
 
-routeImagen.route('/data/dataImagen')
+routeImagen.route('/data/Imagen')
         .get(x.read)
         .post(x.create)
 
-routeImagen.route('/data/dataImagen/:id')
+routeImagen.route('/data/Imagen/:id')
         .get(x.read);
 
 module.exports = routeImagen;

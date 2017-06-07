@@ -4,23 +4,6 @@ app.controller('mainCtrl', function ($scope, $rootScope, $http, menu, mdDialog) 
         mdDialog.mostrardialog('login', $scope.customFullscreen, ev);
     };
 
-    $scope.frutas = [{
-        nombre: "Manzana",
-        color: "rojo"
-    }, {
-        nombre: "Plantano",
-        color: "amarillo"
-    }, {
-        nombre: "Sandia",
-        color: "rojo"
-    }, {
-        nombre: "Durazno",
-        color: "amarillo"
-    }, {
-        nombre: "Mango",
-        color: "amarillo"
-    }];
-
     $scope.botones = [{
         title: 'Home',
         icon: 'whatshot',
@@ -33,7 +16,7 @@ app.controller('mainCtrl', function ($scope, $rootScope, $http, menu, mdDialog) 
         sref: 'yellow'
     }, {
         title: 'Purple',
-        icon: 'star_rate',
+        icon: 'public',
         color: 'purple',
         sref: 'purple'
     }, {
@@ -48,8 +31,6 @@ app.controller('mainCtrl', function ($scope, $rootScope, $http, menu, mdDialog) 
         sref: 'green'
     }];
 
-    console.log($scope.botones);
-
     // Slider
 
     $scope.images = [{ title: 'Creativity', src: 'http://www.voicehacker.co.uk/wp-content/uploads/2014/07/meet-the-artist-4.jpg' }, { title: 'Goals', src: 'http://www.myrkothum.com/wp-content/uploads/2014/05/reach-your-goals.jpg' }, { title: 'Effectiveness', src: 'http://www.basketrevolution.es/media/wysiwyg/basket.jpg' }, { title: 'Passion', src: 'http://cdn-media-4.lifehack.org/wp-content/files/2014/05/15-Things-Truly-Passionate-People-Do-Differently.jpg' }];
@@ -61,20 +42,16 @@ app.controller('mainCtrl', function ($scope, $rootScope, $http, menu, mdDialog) 
 
     $scope.nuevaPersona = function(data){
         $http.post('/data/personasData').then(function (data) {
-            $scope.personas = data.data;
+            $scope.persona = data.data;
             console.log(data.data);
         });
     }
 
-    $http.get('/data/dataObj').then(function (data) {
-        $scope.obj = data.data;
-        console.log(data.data);
-    });
-
-    $http.get('/data/dataImagen').then(function (data) {
-        $scope.imagenes = data.data;
-        console.log(data.data);
-    });
+    //
+    // $http.get('/data/dataImagen').then(function (data) {
+    //     $scope.imagenes = data.data;
+    //     console.log(data.data);
+    // });
 
 
 });

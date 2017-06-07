@@ -8,10 +8,14 @@ var ex = module.exports = {};
 ex.create = function (req, res, next) {
 
     var data = req.body;
-    persona.create(data)
-            .then(function () {
-                res.status(200).jsonp({msj: 'SUCCESS!'});
-            });
+
+    persona.create({
+        Nombre: req.body.Nombre,
+        Edad: req.body.Edad
+    })
+    .then(function () {
+        res.status(200).jsonp(req.body);
+    });
 };
 
 ex.read = function (req, res, next) {

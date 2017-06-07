@@ -8,6 +8,7 @@ var persona = require('./db/modeloPersona')(conector);
 var imagen = require('./db/modeloImagen')(conector);
 var interes = require('./db/modeloInteres')(conector);
 var personainteres = require('./db/modeloPersonaInteres')(conector);
+var usuario = require('./db/modeloUsuario')(conector);
 
 //- Relations
 
@@ -20,3 +21,4 @@ module.exports.persona = persona;
 module.exports.imagen = imagen;
 module.exports.interes = interes;
 module.exports.personainteres = personainteres;
+module.exports.usuario = usuario;

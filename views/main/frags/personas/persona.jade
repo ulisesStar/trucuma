@@ -1,18 +1,13 @@
 md-card
-	md-input-container(form="persona")
-		label Nombre
-		input(ng-model="persona.nombre")
-	md-input-container
-		label Edad
-		input(ng-model="persona.edad")
-	md-input-container
-		label imagenId
-		input(ng-model="persona.imagenID")
-	md-button(ng-click="nuevaPersona();")
-md-card
 	md-card-content
-		h1 {{personas[id].Nombre}}
+		h1 {{personaSeleccionada.Nombre}}
 md-divider
 md-card
 	md-card-content
-		|	Edad: {{personas[id].Edad}}
+		|	Edad: {{personaSeleccionada.Edad}}
+md-card
+	md-card-content
+		h1 intereses
+	md-list(ng-repeat="intereses in personaSeleccionada.interes")
+		md-list-item
+			h3 {{intereses.Nombre}}

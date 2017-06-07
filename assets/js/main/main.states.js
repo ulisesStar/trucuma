@@ -55,11 +55,15 @@ app.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider
 		views: {
 			'main': {
 				templateUrl: '/catalogo/persona',
-				controller: function ($scope, $stateParams) {
-					var idPersona;
-					idPersona = $stateParams.idPersona;
-					$scope.id = idPersona;
+				controller: function ($scope, $stateParams, $http) {
+					var idPersona = $stateParams.idPersona;
+					$http.get('/data/personasData/' + idPersona ).then(function(persona){
+						// album.persona = persona.data;
+						$scope.personaSeleccionada = persona.data;
+						console.log($scope.personaSeleccionada);
+					});
 				}
+
 			}
 		}
 	}).state('yellow', {
