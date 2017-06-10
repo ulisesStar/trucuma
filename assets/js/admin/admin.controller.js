@@ -1,8 +1,4 @@
-app.controller('adminCtrl', function ($scope, $rootScope, $http, menu, mdDialog) {
-
-    $scope.iniciosesion = function (ev) {
-        mdDialog.mostrardialog('login', $scope.customFullscreen, ev);
-    };
+app.controller('adminCtrl', function ($scope, $rootScope, $http, mdDialog, $timeout, $mdSidenav) {
 
     $scope.frutas = [{
         nombre: "Manzana",
@@ -75,6 +71,15 @@ app.controller('adminCtrl', function ($scope, $rootScope, $http, menu, mdDialog)
         $scope.imagenes = data.data;
         console.log(data.data);
     });
+
+    $scope.toggleLeft = buildToggler('left');
+
+    function buildToggler(componentId) {
+        return function() {
+        $mdSidenav(componentId).toggle();
+        };
+
+    }
 
 
 });

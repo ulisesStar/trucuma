@@ -9,17 +9,25 @@ block content
 	.admin(ng-controller="adminCtrl as adminctrl")
 		md-toolbar(ng-init="sectionsMenu('admin')")
 			.md-toolbar-tools(layout="row" layout-align="space-around center")
+				md-button(ng-click="toggleLeft()")
+					md-icon menu
 				span(flex)
 				p Bienvenido Administrador
 				div(flex layout="row" layout-align="end center")
 					md-button(href="/")
 						md-icon.material-icons exit_to_app
 		div(layout="row")
-			md-sidenav(md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" style="height:100%")
-				md-content
-					ul
-						li(ng-repeat="section in ctrl.menu.sections")
-							h2(ng-if="section.type === 'heading'" id="heading_{{ section.name}}")
-							menu-link(section="section" ng-if="section.type === 'link'")
-							menu-toggle(section="section" ng-if="section.type === 'toggle'")
+			md-sidenav.md-sidenav-left(md-component-id="left" md-disable-backdrop md-whiteframe="4")
+				md-toolbar
+					.md-toolbar-tools
+						md-button(ng-click="toggleLeft()") cerrar
+				md-list
+					md-list-item(ui-sref="home" ng-click="toggleLeft()")
+						md-icon home
+						.md-list-item-text
+							h4 home
+					md-list-item(ui-sref="contactos" ng-click="toggleLeft()")
+						md-icon person
+						.md-list-item-text
+							h4 Lista de contactos
 			main(ui-view="main" class="page" flex)

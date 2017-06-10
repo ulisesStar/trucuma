@@ -1,4 +1,4 @@
-app.controller('mainCtrl', function ($scope, $rootScope, $http, menu, mdDialog) {
+app.controller('mainCtrl', function ($scope, $rootScope, $http, mdDialog) {
 
     $scope.iniciosesion = function (ev) {
         mdDialog.mostrardialog('login', $scope.customFullscreen, ev);
