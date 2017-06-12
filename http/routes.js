@@ -14,11 +14,8 @@ router.get("/admin/:url", function(req, res) {
     res.render("admin/frags/" + page);
 })
 
-// router.post('/loginUniversidad', passport.authenticate('loginUniversidad', {
-//     successRedirect: '/homeUni',
-//     failureRedirect: '/',
-//     failureFlash: true
-// }));
+router.all('/:action', function(req, res){
+})
 
 router.get("/main/:url", function(req, res) {
     var page = req.params.url
@@ -51,6 +48,8 @@ router.get("/user/:url", function(req, res) {
 router.get("/partials/:part", function(req, res) {
 	var partial = req.params.part
     res.render("partials/" + partial );
+    let error_message = req.flash('error')[0];
+    res.locals.error_message = error_message;
 })
 
 module.exports = router;

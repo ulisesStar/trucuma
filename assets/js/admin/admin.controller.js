@@ -1,22 +1,5 @@
 app.controller('adminCtrl', function ($scope, $rootScope, $http, mdDialog, $timeout, $mdSidenav) {
 
-    $scope.frutas = [{
-        nombre: "Manzana",
-        color: "rojo"
-    }, {
-        nombre: "Plantano",
-        color: "amarillo"
-    }, {
-        nombre: "Sandia",
-        color: "rojo"
-    }, {
-        nombre: "Durazno",
-        color: "amarillo"
-    }, {
-        nombre: "Mango",
-        color: "amarillo"
-    }];
-
     $scope.botones = [{
         title: 'Home',
         icon: 'whatshot',
@@ -78,8 +61,6 @@ app.controller('adminCtrl', function ($scope, $rootScope, $http, mdDialog, $time
         return function() {
         $mdSidenav(componentId).toggle();
         };
-
     }
-
 
 });

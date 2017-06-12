@@ -18,7 +18,8 @@ sequelize.sync()
     })
     .catch(function(err) {
         console.log('No se puede conectar a la bd:', err);
-    });
+    }
+);
 
 module.exports.Sequelize = Sequelize;
 module.exports.sequelize = sequelize;
