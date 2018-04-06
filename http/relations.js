@@ -4,21 +4,19 @@ var conector = require('./connection');
 
 //- Modelos
 
-var persona = require('./db/modeloPersona')(conector);
-var imagen = require('./db/modeloImagen')(conector);
-var interes = require('./db/modeloInteres')(conector);
-var personainteres = require('./db/modeloPersonaInteres')(conector);
 var usuario = require('./db/modeloUsuario')(conector);
+var imagenes = require('./db/modeloImagenes')(conector);
+var productos = require('./db/modeloProducto')(conector);
 
 //- Relations
 
-persona.hasMany(imagen, {foreignKey: 'IdPersona', targetKey: 'id'});
+// servicios.hasMany(imagenes, {foreignKey: 'IdServicio'});
+// imagenes.belongsTo(servicios, {foreignKey: 'IdServicio'});
+//
+// foto.belongsTo(abogados, {foreignKey: 'IdAbogado'});
+// abogados.hasOne(foto, {foreignKey: 'IdAbogado'});
 
-interes.belongsToMany(persona, {through: personainteres, foreignKey: 'IdInteres'});
-persona.belongsToMany(interes, {through: personainteres, foreignKey: 'IdPersona'});
 
-module.exports.persona = persona;
-module.exports.imagen = imagen;
-module.exports.interes = interes;
-module.exports.personainteres = personainteres;
 module.exports.usuario = usuario;
+module.exports.productos = productos;
+module.exports.imagenes = imagenes;
